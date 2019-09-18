@@ -1,0 +1,11 @@
+On Windows 8/10 the USB-BLASTER drivers may not install correct with Quartus.
+
+See https://www.altera.com/support/support-resources/download/drivers/usb-blaster/dri-usb-blaster-vista.html
+
+Summary
+1. Connect the DE0-CV board to your computer and power it on. Go to Control Panel -> Device Manager -> Universal Serial Bus Controllers. There will be a new USB device with a warning sign on it if the driver is not installed.
+2. Right click the thumbnail and choose Update Driver Software -> Browse my computer for driver software.
+3. Enter C:\altera\15.0\quartus\drivers\usb-blaster (customize to your installation path). DO NOT select the x32 or x64 subdirectories.
+4. Select Include Subfolders and click Next
+5. If you are prompted Windows can’t verify the publisher of this driver software, select Install this driver software anyway in the Window Security dialog box. The installation wizard guides you through the installation process.
+6. When finished the Device Manager should have an entry for Altera USB-BLASTER. Programming in Quartus will now work.
