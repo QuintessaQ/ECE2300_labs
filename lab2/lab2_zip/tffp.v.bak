@@ -1,0 +1,7 @@
+module tffp(RESET, CLK, T);
+
+input RESET; 
+input CLK;
+input T;
+
+always@()

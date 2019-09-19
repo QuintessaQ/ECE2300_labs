@@ -8,28 +8,20 @@ module comb(W, X, Y, Z, OUT, OUTNAND);
   output [1:0] OUTNAND;
   reg temp1;
   reg temp2;
-  // assign OUT = W | ~X & ~Z | X & Z | Y & Z;
-  // assign OUTNAND = ~(~W & ~(~X & ~Z) & ~(X & Z) & ~(Y & Z));
-
-  // output OUT;
-  // output OUTNAND;
   
-  always@(W or X or Y or Z)
+  //assign OUT = W | ~X & ~Z | X & Z | Y & Z;
+  //assign OUTNAND = ~(~W & ~(~X & ~Z) & ~(X & Z) & ~(Y & Z));
+
+
+  
+  always@(*)
   begin
-    if (W == 1b'1) begin  
-      temp1 = 1b'1;
-    end else if (X == 1b'0 and Z == 1b'0)
-      temp1 = 1b'1;
-    end else if (X == 1b'1 and Z == 1b'1)
-      temp1 = 1b'1;
-    end else if (Y == 1b'1 and Z == 1b'1)
-      temp1 = 1b'1;
-    else 
-      temp1 = 1b'0;
+      temp1 = W | ~X & ~Z | X & Z | Y & Z;
+		temp2 = ~(~W & ~(~X & ~Z) & ~(X & Z) & ~(Y & Z));
   end
   
   assign OUT = temp1;
-  assign OUTNAND = temp1;
+  assign OUTNAND = temp2;
 
 endmodule
 
